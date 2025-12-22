@@ -1,6 +1,6 @@
 name: pull-request-workflow 3
 on: 
-  pull_request
+  pull_request:
     types: [opened]
 
 jobs:
