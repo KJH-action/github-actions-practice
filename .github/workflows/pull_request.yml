@@ -1,5 +1,5 @@
-name: pull-request-workflow 2
-on: pull-request
+name: pull-request-workflow 3
+on: pull_request
 
 jobs:
   pull-request-job:
