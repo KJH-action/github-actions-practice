@@ -19,15 +19,15 @@ on:
 
 jobs:
   workflow-dispatch-job:
-  runs-on: ubuntu-latest
-  steps:
-  - name: step1
-    run: echo hello world
-  - name: step2
-    run: |
-      echo hello world
-      echo gihub action
-  - name: echo inputs
-    run: |
-      echo ${{ inputs.name }}
-      echo ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: step1
+      run: echo hello world
+    - name: step2
+      run: |
+        echo hello world
+        echo gihub action
+    - name: echo inputs
+      run: |
+        echo ${{ inputs.name }}
+        echo ${{ inputs.environment }}
