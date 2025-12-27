@@ -27,7 +27,7 @@ on:
       run: |
         echo hello world
         echo gihub action
-    -name: echo inputs
+    - name: echo inputs
       run: |
         echo ${{ inputs.name }}
         echo ${{ inputs.environment }}
