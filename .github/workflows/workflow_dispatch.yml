@@ -3,12 +3,12 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        decription: 'set name'
+        description: 'set name'
         required: true
         default: 'github-actions'
-        type:: string
-      environment: 
-        decription: 'set env'
+        type: string
+      environment:
+        description: 'set env'
         required: true
         default: 'dev'
         type: choice
@@ -26,7 +26,7 @@ jobs:
     - name: step2
       run: |
         echo hello world
-        echo gihub action
+        echo github action
     - name: echo inputs
       run: |
         echo ${{ inputs.name }}
