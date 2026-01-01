@@ -8,8 +8,9 @@ jobs:
     if: contains(github.event.issue.title, 'normal')
     runs-on: ubuntu-latest
     steps:
-    - name: echo alarm  
-      run: echo normal
+    - name: echo alarm
+      id: normal-title
+      run: echo "title=github.event.issue.title" >> $GITHUB_OUTPUT
     - name: slack 
       uses: slackapi/slack-github-action@v1.24.0
       with:
@@ -21,9 +22,9 @@ jobs:
                 "color": "28a745",
                 "fields": [
                   {
-                    "title": "cissue create",
+                    "title": "normal issue create",
                     "short": true,
-                    "value": "issue create2"
+                    "value": ${{ steps.normal-title.outputs.title }}
                   }
                 ]
               }
