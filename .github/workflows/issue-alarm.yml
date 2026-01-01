@@ -1,0 +1,34 @@
+name: issue-alarm
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue-normal:
+    if: contains(toLower(github.event.issue.title), 'normal')
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo alarm  
+      run: echo normal
+    - name: slack 
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        payload: |
+          {
+            "attachments": [
+              {
+                "pretext": "issue create",
+                "color": "28a745",
+                "fields": [
+                  {
+                    "title": "cissue create",
+                    "short": true,
+                    "value": "issue create2"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
