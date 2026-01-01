@@ -24,7 +24,7 @@ jobs:
                   {
                     "title": "normal issue create",
                     "short": true,
-                    "value": ${{ steps.normal-title.outputs.title }}
+                    "value": steps.normal-title.outputs.title
                   }
                 ]
               }
