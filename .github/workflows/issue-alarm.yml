@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: echo alarm
       id: normal-title
-      run: echo "title=github.event.issue.title" >> $GITHUB_OUTPUT
+      run: echo "title=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
     - name: slack 
       uses: slackapi/slack-github-action@v1.24.0
       with:
