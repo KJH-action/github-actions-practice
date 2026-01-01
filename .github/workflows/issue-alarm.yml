@@ -5,7 +5,7 @@ on:
 
 jobs:
   issue-normal:
-    if: contains(toLower(github.event.issue.title), 'normal')
+    if: contains(github.event.issue.title, 'normal')
     runs-on: ubuntu-latest
     steps:
     - name: echo alarm  
