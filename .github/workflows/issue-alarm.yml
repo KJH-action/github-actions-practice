@@ -11,25 +11,24 @@ jobs:
     - name: echo alarm
       id: normal-title
       run: echo "title=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
-    - name: slack 
+    - name: Send Slack
       uses: slackapi/slack-github-action@v1.24.0
       with:
-        payload: |
-          ${{ toJSON({
-            "attachments": [
-              {
-                "pretext": "issue create",
-                "color": "28a745",
-                "fields": [
-                  {
-                    "title": "normal issue create",
-                    "short": true,
-                    "value": steps.normal-title.outputs.title
-                  }
-                ]
-              }
-            ]
-          }) }}
+        payload: ${{ toJSON({
+          attachments: [
+            {
+              pretext: "issue create",
+              color: "28a745",
+              fields: [
+                {
+                  title: "normal issue create",
+                  short: true,
+                  value: steps.normal-title.outputs.title
+                }
+              ]
+            }
+          ]
+        }) }}
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
