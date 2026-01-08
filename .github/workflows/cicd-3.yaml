@@ -155,15 +155,15 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
-    # - name: gh auth login
-    #   run: |
-    #     echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
-    # - name: create branch
-    #   run: |
-    #     git checkout -b release/${{ github.ref_name }}
-    #     git push origin release/${{ github.ref_name }}
-    # - name: create pr
-    #   run: |
-    #     gh pr create --base master --head release/${{ github.ref_name }} --title "release/${{ github.ref_name }} -> master" --body "release pr"
+    - name: gh auth login
+      run: |
+        echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
+    - name: create branch
+      run: |
+        git checkout -b release/${{ github.ref_name }}
+        git push origin release/${{ github.ref_name }}
+    - name: create pr
+      run: |
+        gh pr create --base master --head release/${{ github.ref_name }} --title "release/${{ github.ref_name }} -> master" --body "release pr"
 
 
